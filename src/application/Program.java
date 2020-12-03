@@ -43,10 +43,9 @@ public class Program {
 			double sum = list.stream().filter(e-> e.getName().charAt(0) == 'M')
 									  .map(p -> p.getSalary()).reduce(0.0, (x, y) -> x + y); 
 
-			Comparator<String> comp = (s1, s2) -> s1.toUpperCase().compareTo(s2.toUpperCase());
 
 			List<String> emails = list.stream().filter(e -> e.getSalary() > salary).map(e -> e.getEmail())
-					.sorted(comp).collect(Collectors.toList());
+					.sorted().collect(Collectors.toList());
 
 			System.out.printf("Email of people whose salary is more than %,.2f:%n", salary);
 			emails.forEach(System.out::println);
